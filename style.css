@@ -1,0 +1,20 @@
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.movie__img {
+    width: 10rem;
+    height: 18rem;
+    object-fit: cover;
+}
+.movie__section {
+    display: flex;
+    flex-direction: column;
+}
