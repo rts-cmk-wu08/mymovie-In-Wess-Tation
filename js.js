@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
 let boks = document.querySelector(".boks")
 console.log(boks)
 
@@ -13,6 +14,10 @@ fetch(url)
     .then(data => {
         console.log(data)
 
+
+
+
+//HEADER
 
 let myHeader = document.createElement("header")
 myHeader.innerHTML= `
@@ -28,29 +33,50 @@ myHeader.innerHTML= `
 boks.append(myHeader)
 
 
+//SECTION 1
+
+let movieSection = document.createElement("section")
+movieSection.classList.add("movie__section")
+
 data.results.forEach(result => {
+let div = document.createElement("div")
+    div.innerHTML = `
+    
+    <a href="detail.html"><img src="${imgPath + result.backdrop_path}" class="movie__img"></a>
+        
+    <h3>${result.original_title}</h3>
+    <p>${result.vote_average}</p>
+    
+    
+`
 
-let nowShowing = localStorage.getItem(result.id)
-    let section = document.createElement("section")
-    section.classList.add("nowShowing")
-    section.innerHTML = `
-    <div class="movie__section">
-        <img class="movie__img" src="${imgPath + result.backdrop_path}">
-        <p>${result.original_title}</p>
-        <p class="movie__rating">${result.vote_average}</p>
-    </div>
-
-    `
-
-
-boks.append(section)
+movieSection.append(div)
 })
 
+document.body.append(movieSection)
 
 
+//SECTION 2
+let divContainer = document.createElement("section")
+divContainer.classList.add("divContainer")
 
-
-
+data.results.forEach(result => {
+    let div2 = document.createElement("div")
+    div2.classList.add("div2")
+        div2.innerHTML = `
+        
+        <a href="detail.html"><img src="${imgPath + result.backdrop_path}" class="movie__img2"></a>
+    <div class="movie__info">
+        <h3>${result.original_title}</h3>
+        <p>${result.vote_average}</p>
+        <p>${result.genre_ids}</p>
+        </div>
+        
+    `
+    
+    divContainer.append(div2)
+    })
+document.body.append(divContainer)
 
 
 

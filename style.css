@@ -1,4 +1,4 @@
-
+/* LIST */
 .top {
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,28 @@
     height: 18rem;
     object-fit: cover;
 }
+.movie__img2 {
+    width: 5rem;
+    height: 8rem;
+    object-fit: cover;
+}
 .movie__section {
     display: flex;
-    flex-direction: column;
+}
+.div2 {
+    display: flex;
+}
+
+
+
+
+
+/*DETAIL*/
+
+.grey {
+    color: grey;
+}
+.movie__LL {
+    display: flex;
+    justify-content: space-evenly;
 }
