@@ -42,7 +42,7 @@ data.results.forEach(result => {
 let div = document.createElement("div")
     div.innerHTML = `
     
-    <a href="detail.html"><img src="${imgPath + result.backdrop_path}" class="movie__img"></a>
+    <a href="detail.html?movie=${result.id}"><img src="${imgPath + result.backdrop_path}" class="movie__img"></a>
         
     <h3>${result.original_title}</h3>
     <p>${result.vote_average}</p>
@@ -56,6 +56,23 @@ movieSection.append(div)
 document.body.append(movieSection)
 
 
+//MOST POPULAR 
+
+let boks2 = document.querySelector(".boks2")
+console.log(boks2)
+
+let mostP = document.createElement("div")
+mostP.innerHTML= `
+    <div class="bottom">
+        <h1>Popular</h1>
+        <button class="seeMore">See more</button>
+    </div>
+`
+boks2.append(mostP)
+
+
+
+
 //SECTION 2
 let divContainer = document.createElement("section")
 divContainer.classList.add("divContainer")
@@ -65,12 +82,12 @@ data.results.forEach(result => {
     div2.classList.add("div2")
         div2.innerHTML = `
         
-        <a href="detail.html"><img src="${imgPath + result.backdrop_path}" class="movie__img2"></a>
+    <a href="detail.html?movie=${result.id}"><img src="${imgPath + result.backdrop_path}" class="movie__img2"></a>
     <div class="movie__info">
         <h3>${result.original_title}</h3>
         <p>${result.vote_average}</p>
         <p>${result.genre_ids}</p>
-        </div>
+    </div>
         
     `
     
