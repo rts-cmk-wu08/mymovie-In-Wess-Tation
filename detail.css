@@ -1,0 +1,38 @@
+body {
+    margin: 0 auto;
+}
+.info {
+    padding: 0 2rem;
+}
+
+/*DETAIL*/
+
+
+.bookmark {
+    display: flex;
+    justify-content: space-between;
+}
+.fa-bookmark {
+    padding-top: 1.5rem;
+}
+.grey {
+    color: grey;
+}
+.movie__LL {
+    display: flex;
+    justify-content: space-around;
+}
+.movie__poster {
+    max-width: 100%;
+}
+.genres {
+    display: flex;
+    gap: 2rem;
+}
+.genres span {
+    background-color: rgb(196, 229, 246);
+    color: rgb(128, 180, 224);
+    border-radius: 1rem;
+    padding: 0.5rem 0.3rem;
+}
+

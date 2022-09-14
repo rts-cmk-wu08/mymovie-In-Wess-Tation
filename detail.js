@@ -21,8 +21,12 @@ let url = `https://api.themoviedb.org/3/movie/${movie}?api_key=${APIKey}&languag
 let movieDetails = document.createElement("section")
 movieDetails.innerHTML = `
 <img class="movie__poster" src="${imgPath + data.backdrop_path}" alt="">
+<div class="info">
+    <div class="bookmark">
 <h2 class="movie__title">${data.title}</h2>
-<p class="movie__score">${data.vote_average}</p>
+<i class="fa-regular fa-bookmark"></i>
+</div>
+<p class="movie__score grey"><i class="fa-solid fa-star"></i> ${data.vote_average}</p>
 <div class="genres">
 
 </div>
@@ -44,7 +48,8 @@ movieDetails.innerHTML = `
 
 </div>
 <h3 class="descrip__hedline">Description</h3>
-<p class="descrip__text">${data.overview}</p>
+<p class="descrip__text grey">${data.overview}</p>
+</div>
 `
 
 

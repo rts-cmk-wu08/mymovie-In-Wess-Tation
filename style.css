@@ -29,6 +29,7 @@ body {
     height: 18rem;
     object-fit: cover;
     border-radius: 1rem;
+    box-shadow: 10px 10px 10px grey;
 }
 .movie__img2 {
     width: 7rem;
@@ -49,19 +50,13 @@ body {
     padding-left: 1rem;
 }
 
-
-
-
-
-/*DETAIL*/
-
-.grey {
-    color: grey;
+.genres {
+    background-color: rgb(196, 229, 246);
+    color: rgb(128, 180, 224);
+    border-radius: 1rem;
+    padding: 0.5rem 0.3rem;
 }
-.movie__LL {
-    display: flex;
-    justify-content: space-evenly;
-}
-.movie__poster {
-    max-width: 100%;
-}
+
+
+
+
