@@ -1,11 +1,26 @@
+body {
+    margin: 0 auto;
+    padding-left: 1.5rem;
+}
+
+
+
 /* LIST */
 .top {
     display: flex;
     justify-content: space-between;
+    padding-left: 7rem;
 }
 .bottom {
     display: flex;
     justify-content: space-between;
+}
+.seeMore {
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 2px solid grey;
+    color: grey;
+    background-color: white;
 }
 
 
@@ -13,17 +28,25 @@
     width: 10rem;
     height: 18rem;
     object-fit: cover;
+    border-radius: 1rem;
 }
 .movie__img2 {
-    width: 5rem;
-    height: 8rem;
+    width: 7rem;
+    height: 10rem;
     object-fit: cover;
+    border-radius: 1rem;
 }
 .movie__section {
     display: flex;
+    overflow-x: scroll;
+    gap: 1rem;
+
 }
 .div2 {
     display: flex;
+}
+.movie__info {
+    padding-left: 1rem;
 }
 
 
@@ -38,4 +61,7 @@
 .movie__LL {
     display: flex;
     justify-content: space-evenly;
+}
+.movie__poster {
+    max-width: 100%;
 }
