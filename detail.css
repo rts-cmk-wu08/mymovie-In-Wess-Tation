@@ -40,3 +40,26 @@ main {
     padding: 0.3rem 0.5rem;
 }
 
+
+/*CAST*/
+
+.space__between {
+    display: flex;
+    justify-content: space-between;
+}
+.seeMore {
+    margin: 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid grey;
+    color: grey;
+    background-color: white;
+}
+
+.castElm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+.castElm img {
+    max-width: 4rem;
+}

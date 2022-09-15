@@ -9,8 +9,6 @@ let params = new URLSearchParams(window.location.search)
 let movie = params.get("movie")
 console.log(movie)
 
-    let boks = document.querySelector(".boks")
-    console.log(boks)
 
 let imgPath ="https://image.tmdb.org/t/p/original"
 let APIKey = "8aae96e730d41065f7cfa804530c488a"
@@ -87,26 +85,41 @@ data.genres.forEach(genre => {
 
 
 //CAST
+let imgPathCast ="https://image.tmdb.org/t/p/original"
 
-fetch(`https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=${APIKey}&language=en-US`)
+fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${APIKey}&language=en-US`)
 .then(response => response.json())
 .then(data => {
+
+const actorShort = data.cast.slice(0,4)
+
+let castHeadline = document.createElement("div")
+    castHeadline.innerHTML = `
+        <div class="space__between">
+        <h1>Cast</h1>
+        <button class="seeMore">Show More</button>
+        </div>
+    `
+myMain.append(castHeadline)
+
 
 let castElm = document.createElement("section")
 castElm.classList.add("castElm")
 
-data.cast.forEach(casts => {
 
-    let castList = document.createElement("atricle")
+console.log(data)
+actorShort.forEach(casts => {
+
+    let castList = document.createElement("article")
     castList.innerHTML = `
-    <h1>Cast</h1>
-    <img src="" alt="">
+    <img src="${imgPathCast + casts.profile_path}">
     <p>${casts.name}</p>
-
-`
+    `
 castElm.append(castList)
 })
 myMain.append(castElm)
+
+
 
 })
 
