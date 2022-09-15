@@ -11,12 +11,12 @@ body {
     justify-content: space-between;
     padding-left: 7rem;
 }
-.bottom {
+.space__between {
     display: flex;
     justify-content: space-between;
 }
 .seeMore {
-    margin: 1rem;
+    margin: 1.5rem;
     border-radius: 1rem;
     border: 2px solid grey;
     color: grey;
@@ -41,7 +41,10 @@ body {
     display: flex;
     overflow-x: scroll;
     gap: 1rem;
-
+}
+.movie__title {
+    font-family: Poppins;
+    font-weight: 400;
 }
 .div2 {
     display: flex;
@@ -54,9 +57,22 @@ body {
     background-color: rgb(196, 229, 246);
     color: rgb(128, 180, 224);
     border-radius: 1rem;
-    padding: 0.5rem 0.3rem;
+    padding: 0 0.5rem;
 }
 
 
 
-
+/*FOOTER*/
+footer {
+   position: fixed;
+   bottom: 0px;
+   width: 20rem;
+   height: 4rem;
+  background-color: white;
+}
+.tags {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}

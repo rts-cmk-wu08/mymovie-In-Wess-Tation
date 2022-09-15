@@ -1,21 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
-let nowShowing = document.querySelector(".nowShowing")
-
-
-let imgPath ="https://image.tmdb.org/t/p/original"
-let APIKey = "8aae96e730d41065f7cfa804530c488a"
-let url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIKey}&language=en-US&page=1`
-
-
-fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-
-
-
+let wrapperElm = document.querySelector(".wrapper")
 
 //HEADER
 
@@ -23,24 +8,61 @@ let myHeader = document.createElement("header")
 myHeader.innerHTML= `
     <div class="top">
         <h2>MyMovies</h2>
-        <button class="LDBtn">btn</button>
+        
     </div>
 `
-document.body.prepend(myHeader)
+wrapperElm.prepend(myHeader)
 
+//MAIN
+
+let myMain = document.createElement("main")
+wrapperElm.append(myMain)
+
+//FOOTER
+    
+        let myFooter = document.createElement("footer")
+        myFooter.innerHTML= `
+            <div class="tags">
+            <i class="fa-brands fa-slack"></i>
+            <i class="fa-regular fa-ticket-simple"></i>
+            <i class="fa-regular fa-bookmark"></i>
+            </div>
+        `
+        wrapperElm.append(myFooter)
+
+
+
+let nowShowing = document.createElement("section")
+nowShowing.classList.add("nowShowing")
+myMain.append(nowShowing)
+
+let popular = document.createElement("section")
+popular.classList.add("popular")
+myMain.append(popular)
+
+
+let imgPath ="https://image.tmdb.org/t/p/original"
+let URLPath = "https://api.themoviedb.org/3/"
+let APIKey = "8aae96e730d41065f7cfa804530c488a"
+
+
+fetch(`${URLPath}movie/now_playing?api_key=${APIKey}&language=en-US&page=1`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
 
 
 //NOW SHOWING + BTN
 
 
-let nowShowingHeadline = document.createElement("h1")
-nowShowingHeadline.innerText = "Now Showing"
+let nowShowingHeadline = document.createElement("div")
+nowShowingHeadline.innerHTML = `
+<div class="space__between">
+<h1>Now Showing</h1>
+<button class="seeMore">Show More</button>
+</div>
+`
 nowShowing.append(nowShowingHeadline)
-
-let showMoreBtn = document.createElement("button")
-showMoreBtn.classList.add("seeMore")
-showMoreBtn.innerText = "Show More"
-nowShowing.append(showMoreBtn)
 
 
 //SECTION 1
@@ -54,7 +76,7 @@ let article = document.createElement("article")
     
     <a href="detail.html?movie=${result.id}"><img src="${imgPath + result.backdrop_path}" class="movie__img"></a>
         
-    <h3>${result.original_title}</h3>
+    <h3 class="movie__title">${result.original_title}</h3>
     <p><i class="fa-solid fa-star"></i> ${result.vote_average}</p>
     
 `
@@ -77,9 +99,19 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
 
         let imgPathPopular = "https://image.tmdb.org/t/p/w500"
         
+
+        let popularHeadline = document.createElement("div")
+        popularHeadline.innerHTML = `
+        <div class="space__between">
+        <h1>Popular</h1>
+        <button class="seeMore">Show More</button>
+        </div>
+        `
+        popular.append(popularHeadline)
+
         //SECTION 2
-        let divContainer = document.createElement("section")
-        divContainer.classList.add("divContainer")
+        let popularContainer = document.createElement("section")
+        popularContainer.classList.add("divContainer")
         
         data.results.forEach(result => {
             let div2 = document.createElement("div")
@@ -88,7 +120,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
                 
             <a href="detail.html?movie=${result.id}"><img src="${imgPathPopular + result.poster_path}" class="movie__img2"></a>
             <div class="movie__info">
-                <h3>${result.original_title}</h3>
+                <h3 class="movie__title">${result.original_title}</h3>
                 <p><i class="fa-solid fa-star"></i> ${result.vote_average}</p>
                 <div class="genres">
                 <p>${result.genre_ids}</p>
@@ -97,16 +129,17 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
                 
             `
             
-            divContainer.append(div2)
+            popularContainer.append(div2)
             })
-        document.body.append(divContainer)
+        popular.append(popularContainer)
+
 
 
     })
 
 
 
-
+   
 
 
 
