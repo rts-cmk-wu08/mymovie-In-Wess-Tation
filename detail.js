@@ -9,6 +9,15 @@ let params = new URLSearchParams(window.location.search)
 let movie = params.get("movie")
 console.log(movie)
 
+let myHeader = document.createElement("header")
+myHeader.innerHTML= `
+        <label class="switch">
+        <input type="checkbox" data-mode="check">
+        <span class="slider round"></span>
+        </label>
+    <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+`
+wrapperElm.prepend(myHeader)
 
 let imgPath ="https://image.tmdb.org/t/p/original"
 let APIKey = "8aae96e730d41065f7cfa804530c488a"
@@ -21,16 +30,13 @@ fetch(url)
    
             
 //HEADER
-let myHeader = document.createElement("header")
-myHeader.innerHTML= `
-        <label class="switch">
-        <input type="checkbox" data-mode="check">
-        <span class="slider round"></span>
-        </label>
-    <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
-    <img class="movie__poster" src="${imgPath + data.backdrop_path}" alt="">
+
+let moviePoster = document.createElement("div")
+moviePoster.innerHTML = `
+<img class="movie__poster" src="${imgPath + data.backdrop_path}" alt="">
 `
-wrapperElm.prepend(myHeader)
+
+myHeader.append(moviePoster)
 
 
 

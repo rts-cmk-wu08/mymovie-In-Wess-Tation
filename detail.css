@@ -7,9 +7,7 @@ main {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     position: absolute;}
-header {
-    margin-bottom: -1rem;
-}
+
 
 /*SWITCH*/
 
@@ -19,7 +17,7 @@ header {
     display: inline-block;
     width: 60px;
     height: 20px;
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     margin-left: 19rem;
     }
     
@@ -106,6 +104,7 @@ header {
 }
 .movie__poster {
     width: 100%;
+    margin-bottom: -1rem;
 }
 .fa-arrow-left {
     position: absolute;
