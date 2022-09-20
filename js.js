@@ -8,9 +8,11 @@ let wrapperElm = document.querySelector(".wrapper")
 let myHeader = document.createElement("header")
 myHeader.innerHTML= `
     <div class="top">
+        <button class="button" data-mode="light">Light</button>
+        <button class="button" data-mode="dark">Dark</button>
         <h2>MyMovies</h2>
         <label class="switch">
-        <input type="checkbox">
+        <input type="checkbox" data-mode="check">
         <span class="slider round"></span>
         </label>
     </div>
@@ -139,7 +141,6 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
 //GENRE
 
 let genreElm = popularMovies.querySelector(".genres")
-    console.log(genreElm)
 
     result.genre_ids.forEach(id => {
         let currentGenre = genres.find(genre => genre.id == id)
