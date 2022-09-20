@@ -8,8 +8,6 @@ let wrapperElm = document.querySelector(".wrapper")
 let myHeader = document.createElement("header")
 myHeader.innerHTML= `
     <div class="top">
-        <button class="button" data-mode="light">Light</button>
-        <button class="button" data-mode="dark">Dark</button>
         <h2>MyMovies</h2>
         <label class="switch">
         <input type="checkbox" data-mode="check">

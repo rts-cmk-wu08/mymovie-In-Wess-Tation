@@ -1,4 +1,13 @@
 body {
     background-color: rgb(42, 42, 42);
-    color: rgb(197, 199, 200);
+    color: rgb(239, 239, 239);
+}
+footer {
+    background-color: rgb(42, 42, 42);
+}
+.seeMore {
+    background-color: rgb(42, 42, 42);
+}
+main {
+    background-color: rgb(42, 42, 42);
 }

@@ -23,6 +23,10 @@ fetch(url)
 //HEADER
 let myHeader = document.createElement("header")
 myHeader.innerHTML= `
+        <label class="switch">
+        <input type="checkbox" data-mode="check">
+        <span class="slider round"></span>
+        </label>
     <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
     <img class="movie__poster" src="${imgPath + data.backdrop_path}" alt="">
 `

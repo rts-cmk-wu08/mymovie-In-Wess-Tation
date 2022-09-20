@@ -11,24 +11,42 @@ let setActiveStyleSheet = function(title) {
     localStorage.setItem("theme", title);
 }
 let savedSheet = localStorage.getItem("theme")
-
+console.log(savedSheet)
 if(savedSheet) {
-    setActiveStyleSheet(savedSheet)
+    setActiveStyleSheet(savedSheet);
 }else {
     setActiveStyleSheet("light");
 }
 
 
+let darkElm = document.querySelector('[data-mode="check"]');
 
-let lightBtnElm = document.querySelector('[data-mode="light"]');
-let darkBtnElm = document.querySelector('[data-mode="dark"]');
+darkElm.addEventListener("click", (event) => {
+    if (event.target.checked) {
+        setActiveStyleSheet('dark')
+    }else {
+        setActiveStyleSheet('light')
+    }
 
-lightBtnElm.addEventListener("click", function () {
-    setActiveStyleSheet('light')
 })
-darkBtnElm.addEventListener("click", function () {
-    setActiveStyleSheet('dark')
-})
+
+
+// let lightElm = document.querySelector('[data-mode="check"]');
+
+// lightElm.addEventListener("click", () => {
+//     setActiveStyleSheet('light')
+// })
+
+
+// let lightBtnElm = document.querySelector('[data-mode="light"]');
+// let darkBtnElm = document.querySelector('[data-mode="dark"]');
+
+// lightBtnElm.addEventListener("click", function () {
+//     setActiveStyleSheet('light')
+// })
+// darkBtnElm.addEventListener("click", function () {
+//     setActiveStyleSheet('dark')
+// })
 
 
 
