@@ -118,30 +118,30 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
         popularContainer.classList.add("divContainer")
         
         data.results.forEach(result => {
-            let div2 = document.createElement("div")
-            div2.classList.add("div2")
-                div2.innerHTML = `
+            let popularMovies = document.createElement("div")
+            popularMovies.classList.add("div2")
+            popularMovies.innerHTML = `
             <a href="detail.html?movie=${result.id}"><img src="${imgPathPopular + result.poster_path}" class="movie__img2"></a>
             <div class="movie__info">
                 <h3 class="movie__title">${result.original_title}</h3>
                 <p><i class="fa-solid fa-star"></i> ${result.vote_average} IMDb</p>
                 
-                <p class="genres">${result.genre_ids}</p>
+                <p class="genres"></p>
                 
             </div>
                 
             `
             
-            popularContainer.append(div2)
-            })
+            popularContainer.append(popularMovies)
+           
         popular.append(popularContainer)
 
 //GENRE
 
-let genreElm = popularContainer.querySelector(".genres")
+let genreElm = popularMovies.querySelector(".genres")
     console.log(genreElm)
 
-    data.results.genre_ids.forEach(id => {
+    result.genre_ids.forEach(id => {
         let currentGenre = genres.find(genre => genre.id == id)
 
         let genreSpan = document.createElement("span")
@@ -150,6 +150,8 @@ let genreElm = popularContainer.querySelector(".genres")
         genreElm.append(genreSpan)
     })
 
+
+ })
     })
 
 

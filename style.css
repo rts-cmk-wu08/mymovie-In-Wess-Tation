@@ -125,12 +125,13 @@ body {
     padding-left: 1rem;
 }
 
-.genres {
+.genres span{
     background-color: rgb(196, 229, 246);
     color: rgb(128, 180, 224);
     border-radius: 1rem;
     padding: 0 0.5rem;
 }
+
 
 
 
