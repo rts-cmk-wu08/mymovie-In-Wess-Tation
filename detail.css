@@ -2,8 +2,22 @@ body {
     margin: 0 auto;
 }
 main {
-    padding: 0 2rem;
+    padding: 2rem;
+    background-color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    position: absolute;}
+header {
+    margin-bottom: -1rem;
 }
+
+
+
+
+
+
+
+
 
 /*DETAIL*/
 
@@ -23,7 +37,13 @@ main {
     justify-content: space-around;
 }
 .movie__poster {
-    max-width: 100%;
+    width: 100%;
+}
+.fa-arrow-left {
+    position: absolute;
+    z-index: 60;
+    padding: 3rem 2rem;
+    color: white;
 }
 .movie__text {
     font-family: Poppins;

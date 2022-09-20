@@ -14,15 +14,16 @@ let imgPath ="https://image.tmdb.org/t/p/original"
 let APIKey = "8aae96e730d41065f7cfa804530c488a"
 let url = `https://api.themoviedb.org/3/movie/${movie}?api_key=${APIKey}&language=en-US&page=1`
    
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
    
             
 //HEADER
 let myHeader = document.createElement("header")
 myHeader.innerHTML= `
+    <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
     <img class="movie__poster" src="${imgPath + data.backdrop_path}" alt="">
 `
 wrapperElm.prepend(myHeader)
@@ -46,15 +47,15 @@ movieDetails.innerHTML = `
 <div class="movie__LL">
 <div class="movie__length movie__text">
     <p class="grey">Length</p>
-    <p>${data.runtime} Minutes</p>
+    <p>${data.runtime} Min</p>
 </div>
 <div class="movie__language movie__text">
  <p class="grey">Language</p>
     <p>${data.original_language}</p>
 </div>
-<div class="movie__rating movie__text">
-    <p class="grey">Ratin</p>
-    <p>${data.adult}</p>
+<div class="movie__year movie__text">
+    <p class="grey">Release Date</p>
+    <p>${data.release_date}</p>
 </div>
 
 

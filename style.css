@@ -9,7 +9,7 @@ body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
+    width: 60px;
     height: 20px;
     margin-top: 1rem;
     margin-right: 2rem;
@@ -48,11 +48,11 @@ body {
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #373737;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #6e6e6e;
   }
   
   input:checked + .slider:before {
@@ -130,6 +130,7 @@ body {
     color: rgb(128, 180, 224);
     border-radius: 1rem;
     padding: 0 0.5rem;
+    display: inline-block;
 }
 
 
