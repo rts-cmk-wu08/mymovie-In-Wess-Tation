@@ -148,3 +148,6 @@ footer {
     padding-top: 1rem;
     padding-bottom: 3rem;
 }
+.fa-ticket-simple {
+    transform: rotate(90deg);
+}

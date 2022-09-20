@@ -28,7 +28,7 @@ wrapperElm.append(myMain)
         myFooter.innerHTML= `
             <div class="tags">
             <i class="fa-brands fa-slack"></i>
-            <i class="fa-regular fa-ticket-simple"></i>
+            <i class="fa-solid fa-ticket-simple"></i>
             <i class="fa-regular fa-bookmark"></i>
             </div>
         `
@@ -136,15 +136,18 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
             })
         popular.append(popularContainer)
 
-let genresElm = popularContainer.querySelector(".genres")
-    console.log(genres)
-    data.genre_ids.forEach(id => {
+//GENRE
+
+let genreElm = popularContainer.querySelector(".genres")
+    console.log(genreElm)
+
+    data.results.genre_ids.forEach(id => {
         let currentGenre = genres.find(genre => genre.id == id)
-        console.log(currentGenres)
+
         let genreSpan = document.createElement("span")
         genreSpan.classList.add("genre__pill")
         genreSpan.innerText = currentGenre.name
-        genresElm.append(genreSpan)
+        genreElm.append(genreSpan)
     })
 
     })
