@@ -100,7 +100,7 @@ input:checked + .slider:before {
   width: 10rem;
   height: 18rem;
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 10px 10px 10px grey;
 }
 .movie__img2 {
@@ -124,7 +124,10 @@ input:checked + .slider:before {
 .movie__info {
   padding-left: 1rem;
 }
-
+.vote {
+  font-family: Poppins;
+  font-weight: 400;
+}
 .genres span{
   background-color: rgb(196, 229, 246);
   color: rgb(128, 180, 224);

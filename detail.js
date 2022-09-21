@@ -12,7 +12,7 @@ console.log(movie)
 let myHeader = document.createElement("header")
 myHeader.innerHTML= `
         <label class="switch">
-        <input type="checkbox" data-mode="check">
+        <input type="checkbox" data-mode="check" id="check">
         <span class="slider round"></span>
         </label>
     <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>

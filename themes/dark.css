@@ -11,3 +11,6 @@ footer {
 main {
     background-color: black;
 }
+.movie__img {
+    box-shadow: none;
+}

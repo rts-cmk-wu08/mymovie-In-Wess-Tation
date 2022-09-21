@@ -24,8 +24,10 @@ let darkElm = document.querySelector('[data-mode="check"]');
 darkElm.addEventListener("click", (event) => {
     if (event.target.checked) {
         setActiveStyleSheet('dark')
+        document.getElementById("check").checked = true;
     }else {
         setActiveStyleSheet('light')
+        document.getElementById("check").checked = false;
     }
 
 })

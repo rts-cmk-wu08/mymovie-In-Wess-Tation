@@ -81,7 +81,7 @@ let article = document.createElement("article")
     <a href="detail.html?movie=${result.id}"><img src="${imgPath + result.backdrop_path}" class="movie__img"></a>
         
     <h3 class="movie__title">${result.original_title}</h3>
-    <p><i class="fa-solid fa-star"></i> ${result.vote_average}</p>
+    <p class="vote"><i class="fa-solid fa-star"></i> ${result.vote_average} IMDb</p>
     
 `
 
@@ -124,7 +124,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
             <a href="detail.html?movie=${result.id}"><img src="${imgPathPopular + result.poster_path}" class="movie__img2"></a>
             <div class="movie__info">
                 <h3 class="movie__title">${result.original_title}</h3>
-                <p><i class="fa-solid fa-star"></i> ${result.vote_average} IMDb</p>
+                <p class="vote"><i class="fa-solid fa-star"></i> ${result.vote_average} IMDb</p>
                 
                 <p class="genres"></p>
                 
