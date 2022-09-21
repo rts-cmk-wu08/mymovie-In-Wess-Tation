@@ -9,6 +9,10 @@ let params = new URLSearchParams(window.location.search)
 let movie = params.get("movie")
 console.log(movie)
 
+
+
+
+//HEADER
 let myHeader = document.createElement("header")
 myHeader.innerHTML= `
         <label class="switch">
@@ -19,35 +23,30 @@ myHeader.innerHTML= `
 `
 wrapperElm.prepend(myHeader)
 
+let APIKey = "8aae96e730d41065f7cfa804530c488a"
+
+
 //VIDEO
 
-// let imgPathVideo ="https://image.tmdb.org/t/p/original"
-
-fetch(`https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=${APIKey}&language=en-US`)
+fetch(`https://api.themoviedb.org/3/movie/${movie}/videos?api_key=${APIKey}&language=en-US`)
 .then(response => response.json())
 .then(data => {
-
+console.log(data.results.key)
 
 let movieVideo = document.createElement("div")
     movieVideo.innerHTML = `
         <h1>hej</h1>
+        <iframe src="${data.results.key}" frameborder="0"></iframe>
         `
-myHeader.append(movieVideo)
+myHeader.prepend(movieVideo)
 
 })
 
 
 
-
-
-
-
-
-
-
+//MAIN
 
 let imgPath ="https://image.tmdb.org/t/p/original"
-let APIKey = "8aae96e730d41065f7cfa804530c488a"
 let url = `https://api.themoviedb.org/3/movie/${movie}?api_key=${APIKey}&language=en-US&page=1`
    
 fetch(url)
@@ -55,8 +54,10 @@ fetch(url)
     .then(data => {
         console.log(data)
    
-            
-//HEADER
+let hours = Math.floor(data.runtime/60)
+let minutes = data.runtime % 60  
+
+//POSTER
 
 let moviePoster = document.createElement("div")
 moviePoster.innerHTML = `
@@ -84,7 +85,7 @@ movieDetails.innerHTML = `
 <div class="movie__LL">
 <div class="movie__length movie__text">
     <p class="grey">Length</p>
-    <p>${data.runtime} Min</p>
+    <p>${hours} H : ${minutes} M</p>
 </div>
 <div class="movie__language movie__text">
  <p class="grey">Language</p>
