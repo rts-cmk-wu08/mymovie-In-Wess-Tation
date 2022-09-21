@@ -10,7 +10,7 @@ myHeader.innerHTML= `
     <div class="top">
         <h2>MyMovies</h2>
         <label class="switch">
-        <input type="checkbox" data-mode="check">
+        <input type="checkbox" data-mode="check" id="check">
         <span class="slider round"></span>
         </label>
     </div>

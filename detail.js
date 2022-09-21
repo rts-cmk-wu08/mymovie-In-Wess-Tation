@@ -19,6 +19,33 @@ myHeader.innerHTML= `
 `
 wrapperElm.prepend(myHeader)
 
+//VIDEO
+
+// let imgPathVideo ="https://image.tmdb.org/t/p/original"
+
+fetch(`https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=${APIKey}&language=en-US`)
+.then(response => response.json())
+.then(data => {
+
+
+let movieVideo = document.createElement("div")
+    movieVideo.innerHTML = `
+        <h1>hej</h1>
+        `
+myHeader.append(movieVideo)
+
+})
+
+
+
+
+
+
+
+
+
+
+
 let imgPath ="https://image.tmdb.org/t/p/original"
 let APIKey = "8aae96e730d41065f7cfa804530c488a"
 let url = `https://api.themoviedb.org/3/movie/${movie}?api_key=${APIKey}&language=en-US&page=1`

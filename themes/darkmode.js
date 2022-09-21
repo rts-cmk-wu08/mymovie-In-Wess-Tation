@@ -14,6 +14,10 @@ let savedSheet = localStorage.getItem("theme")
 console.log(savedSheet)
 if(savedSheet) {
     setActiveStyleSheet(savedSheet);
+    if (savedSheet === "dark") {
+        document.getElementById("check").checked = true;
+    }
+
 }else {
     setActiveStyleSheet("light");
 }
@@ -24,10 +28,10 @@ let darkElm = document.querySelector('[data-mode="check"]');
 darkElm.addEventListener("click", (event) => {
     if (event.target.checked) {
         setActiveStyleSheet('dark')
-        document.getElementById("check").checked = true;
+        let inputChecked = document.getElementById("check").checked
+        console.log(inputChecked)
     }else {
         setActiveStyleSheet('light')
-        document.getElementById("check").checked = false;
     }
 
 })
