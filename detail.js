@@ -132,7 +132,7 @@ let castHeadline = document.createElement("div")
     castHeadline.innerHTML = `
         <div class="space__between">
         <h1>Cast</h1>
-        <button class="seeMore">Show More</button>
+        <button class="seeMore">See More</button>
         </div>
     `
 myMain.append(castHeadline)

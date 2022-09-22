@@ -63,7 +63,7 @@ let nowShowingHeadline = document.createElement("div")
 nowShowingHeadline.innerHTML = `
 <div class="space__between">
 <h1>Now Showing</h1>
-<a href="#"><button class="seeMore">Show More</button></a>
+<a href="#"><button class="seeMore">See More</button></a>
 </div>
 `
 nowShowing.append(nowShowingHeadline)
@@ -108,7 +108,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
         popularHeadline.innerHTML = `
         <div class="space__between">
         <h1>Popular</h1>
-        <a href="#"><button class="seeMore">Show More</button></a>
+        <a href="#"><button class="seeMore">See More</button></a>
         </div>
         `
         popular.append(popularHeadline)
