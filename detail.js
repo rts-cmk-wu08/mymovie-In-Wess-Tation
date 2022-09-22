@@ -31,14 +31,19 @@ let APIKey = "8aae96e730d41065f7cfa804530c488a"
 fetch(`https://api.themoviedb.org/3/movie/${movie}/videos?api_key=${APIKey}&language=en-US`)
 .then(response => response.json())
 .then(data => {
-console.log(data.results.key)
+console.log(data.results)
 
-let movieVideo = document.createElement("div")
+let trailers = data.results.pop()
+console.log(trailers)
+
+
+
+    let movieVideo = document.createElement("div")
+    movieVideo.classList.add("movieVideo")
     movieVideo.innerHTML = `
-        <h1>hej</h1>
-        <iframe src="${data.results.key}" frameborder="0"></iframe>
+        <iframe width="375" height="315" src="https://www.youtube.com/embed/${trailers.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
         `
-myHeader.prepend(movieVideo)
+myHeader.append(movieVideo)
 
 })
 
@@ -56,15 +61,6 @@ fetch(url)
    
 let hours = Math.floor(data.runtime/60)
 let minutes = data.runtime % 60  
-
-//POSTER
-
-let moviePoster = document.createElement("div")
-moviePoster.innerHTML = `
-<img class="movie__poster" src="${imgPath + data.backdrop_path}" alt="">
-`
-
-myHeader.append(moviePoster)
 
 
 

@@ -102,8 +102,7 @@ main {
     display: flex;
     justify-content: space-around;
 }
-.movie__poster {
-    width: 100%;
+.movieVideo {
     margin-bottom: -1rem;
 }
 .fa-arrow-left {
