@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+    color: rgb(239, 239, 239);
+}
+footer {
+    background-color: black;
+}
+.seeMore {
+    background-color: black;
+}
+main {
+    background-color: black;
+}
+.movie__img {
+    box-shadow: none;
+}
