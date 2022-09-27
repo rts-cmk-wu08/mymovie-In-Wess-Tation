@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+let popularPage = 1
 
 let wrapperElm = document.querySelector(".wrapper")
 
@@ -78,7 +79,7 @@ data.results.forEach(result => {
 let article = document.createElement("article")
     article.innerHTML = `
     
-    <a href="detail.html?movie=${result.id}"><img src="${imgPath + result.backdrop_path}" class="movie__img"></a>
+    <a href="detail.html?movie=${result.id}"><img src="${imgPath + result.backdrop_path}" class="movie__img" alt="${result.title}"></a>
         
     <h3 class="movie__title">${result.original_title}</h3>
     <p class="vote"><i class="fa-solid fa-star"></i> ${result.vote_average} IMDb</p>
@@ -90,8 +91,15 @@ movieSection.append(article)
 
 nowShowing.append(movieSection)
 
-
-
+//Popular and seeMore
+        let popularHeadline = document.createElement("div")
+        popularHeadline.innerHTML = `
+        <div class="space__between">
+        <h1>Popular</h1>
+        <a href="#"><button class="seeMore">See More</button></a>
+        </div>
+        `
+        popular.append(popularHeadline)
 
 
     })
@@ -108,14 +116,9 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
         let imgPathPopular = "https://image.tmdb.org/t/p/w500"
         
 
-        let popularHeadline = document.createElement("div")
-        popularHeadline.innerHTML = `
-        <div class="space__between">
-        <h1>Popular</h1>
-        <a href="#"><button class="seeMore">See More</button></a>
-        </div>
-        `
-        popular.append(popularHeadline)
+
+
+///
 
         //SECTION 2
         let popularContainer = document.createElement("section")
@@ -125,7 +128,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
             let popularMovies = document.createElement("div")
             popularMovies.classList.add("div2")
             popularMovies.innerHTML = `
-            <a href="detail.html?movie=${result.id}"><img src="${imgPathPopular + result.poster_path}" class="movie__img2"></a>
+            <a href="detail.html?movie=${result.id}"><img src="images/placeholder.gif" class="movie__img2" alt="${result.title}"></a>
             <div class="movie__info">
                 <h3 class="movie__title">${result.original_title}</h3>
                 <p class="vote"><i class="fa-solid fa-star"></i> ${result.vote_average} IMDb</p>
@@ -133,27 +136,33 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
                 <p class="genres"></p>
                 
             </div>
-                
             `
             
             popularContainer.append(popularMovies)
            
         popular.append(popularContainer)
 
+let imgElm = popularMovies.querySelector("img")
 
+let posterImg = new Image()
+posterImg.src = `${imgPathPopular + result.poster_path}`
+
+posterImg.onload = () => {
+imgElm.src = posterImg.src
+}
 
 //INFINITE MOVIES
 
 if (index === 18) {
-    const intersectionObserver = new intersectionObserver((entries) => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
         if (entries[0].intersectionRatio <= 0) return
 
         popularPage++
         console.log("in the viewport")
-        fetchPopular(2)
-    intersectionObserver.unobserve(div)
+        fetchPopular(popularPage)
+        intersectionObserver.unobserve(popularMovies)
     })
-    intersectionObserver.observe(div)
+    intersectionObserver.observe(popularMovies)
 }
 
 
@@ -178,7 +187,7 @@ let genreElm = popularMovies.querySelector(".genres")
 })//fetch slut
 
 }//fetchPopular slut
-fetchPopular(1)
+fetchPopular(popularPage)
 
 
 
