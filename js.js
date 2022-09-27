@@ -166,8 +166,6 @@ if (index === 18) {
 }
 
 
-
-
 //GENRE
 
 let genreElm = popularMovies.querySelector(".genres")
