@@ -100,6 +100,7 @@ nowShowing.append(movieSection)
 fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa804530c488a&language=en-US&page=1`)
     .then(response => response.json())
     .then(data => {
+        console.log(data)
 
         let imgPathPopular = "https://image.tmdb.org/t/p/w500"
         
@@ -135,6 +136,51 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
             popularContainer.append(popularMovies)
            
         popular.append(popularContainer)
+
+
+
+//INFINITE MOVIES
+
+
+
+
+// const api = "https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa804530c488a&language=en-US&page=1"
+
+// async function getMoreMovies(offset) {
+//     const response = await fetch(`${api}?limit=10&offset${offset}`)
+//     const data = await response.json()
+
+// data.results.forEach(function(result, index) {
+//     const id = result.url.split("/")[6]
+
+// const article = document.createElement("article")
+// article.innerHTML = `<h1>hej</h1>`
+// main.appendChild(article)
+
+// const pages = math.cell(data.count / 10)
+// const currentPage = (offset + 10) / 10
+
+// if (index === 8|| pages === currentPage) {
+//     const intersectionObserver = new intersectionObserver(function(entries) {
+//         if (entries[0].intersectionRatio <= 0) return
+//         intersectionObserver.unobserve(article)
+//         getMoreMovies(offset + 10)
+//     })
+
+//     intersectionObserver.observe(article)
+// }
+
+
+// })//forEach end
+// }
+// getMoreMovies(0)
+
+
+
+
+
+
+
 
 //GENRE
 

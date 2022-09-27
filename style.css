@@ -135,6 +135,9 @@ input:checked + .slider:before {
   padding: 0 0.5rem;
   display: inline-block;
 }
+.divContainer {
+  padding-bottom: 4rem;
+}
 
 
 

@@ -51,7 +51,6 @@ myHeader.append(movieVideo)
 
 //MAIN
 
-let imgPath ="https://image.tmdb.org/t/p/original"
 let url = `https://api.themoviedb.org/3/movie/${movie}?api_key=${APIKey}&language=en-US&page=1`
    
 fetch(url)
@@ -98,7 +97,7 @@ movieDetails.innerHTML = `
 <p class="descrip__text movie__text grey">${data.overview}</p>
 </div>
 `
-myMain.append(movieDetails)
+myMain.prepend(movieDetails)
 
 
 //MOVIE GENRES
