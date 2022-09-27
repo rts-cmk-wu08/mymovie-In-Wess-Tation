@@ -95,9 +95,12 @@ nowShowing.append(movieSection)
 
 
     })
+function fetchPopular() {
 
 
-fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa804530c488a&language=en-US&page=1`)
+   
+
+fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa804530c488a&language=en-US&page=16`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -118,7 +121,7 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
         let popularContainer = document.createElement("section")
         popularContainer.classList.add("divContainer")
         
-        data.results.forEach(result => {
+        data.results.forEach((result, index) => {
             let popularMovies = document.createElement("div")
             popularMovies.classList.add("div2")
             popularMovies.innerHTML = `
@@ -141,43 +144,17 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa8
 
 //INFINITE MOVIES
 
+if (index === 18) {
+    const intersectionObserver = new intersectionObserver((entries) => {
+        if (entries[0].intersectionRatio <= 0) return
 
-
-
-// const api = "https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa804530c488a&language=en-US&page=1"
-
-// async function getMoreMovies(offset) {
-//     const response = await fetch(`${api}?limit=10&offset${offset}`)
-//     const data = await response.json()
-
-// data.results.forEach(function(result, index) {
-//     const id = result.url.split("/")[6]
-
-// const article = document.createElement("article")
-// article.innerHTML = `<h1>hej</h1>`
-// main.appendChild(article)
-
-// const pages = math.cell(data.count / 10)
-// const currentPage = (offset + 10) / 10
-
-// if (index === 8|| pages === currentPage) {
-//     const intersectionObserver = new intersectionObserver(function(entries) {
-//         if (entries[0].intersectionRatio <= 0) return
-//         intersectionObserver.unobserve(article)
-//         getMoreMovies(offset + 10)
-//     })
-
-//     intersectionObserver.observe(article)
-// }
-
-
-// })//forEach end
-// }
-// getMoreMovies(0)
-
-
-
-
+        popularPage++
+        console.log("in the viewport")
+        fetchPopular(2)
+    intersectionObserver.unobserve(div)
+    })
+    intersectionObserver.observe(div)
+}
 
 
 
@@ -196,8 +173,12 @@ let genreElm = popularMovies.querySelector(".genres")
     })
 
 
- })
-    })
+})//forEach slut
+
+})//fetch slut
+
+}//fetchPopular slut
+fetchPopular(1)
 
 
 
