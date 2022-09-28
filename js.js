@@ -28,9 +28,10 @@ wrapperElm.append(myMain)
         let myFooter = document.createElement("footer")
         myFooter.innerHTML= `
             <div class="tags">
-            <i class="fa-brands fa-slack"></i>
-            <i class="fa-solid fa-ticket-simple"></i>
-            <i class="fa-regular fa-bookmark"></i>
+            <a class="footer__a" href="#"><i class="fa-brands fa-slack"></i></a>
+            <a class="footer__a" href="#"><i class="fa-solid fa-ticket-simple"></i></a>
+            <a class="footer__a" href="#"><i class="fa-regular fa-bookmark"></i></a>
+            
             </div>
         `
         wrapperElm.append(myFooter)

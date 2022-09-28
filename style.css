@@ -97,8 +97,8 @@ input:checked + .slider:before {
 
 
 .movie__img {
-  width: 10rem;
-  height: 18rem;
+  width: 9rem;
+  height: 13rem;
   object-fit: cover;
   border-radius: 0.5rem;
   box-shadow: 10px 10px 10px grey;
@@ -138,6 +138,9 @@ input:checked + .slider:before {
 .divContainer {
   padding-bottom: 4rem;
 }
+.movie__title, .vote {
+  margin: 0 auto;
+}
 
 
 
@@ -147,14 +150,14 @@ footer {
   position: fixed;
   bottom: 0px;
   width: 20rem;
-  height: 4rem;
+  height: 5rem;
   background-color: white;
 }
 .tags {
   display: flex;
   justify-content: space-evenly;
   padding-top: 1rem;
-  padding-bottom: 3rem;
+  gap: 2.5rem;
 }
 .fa-ticket-simple {
   transform: rotate(90deg);
