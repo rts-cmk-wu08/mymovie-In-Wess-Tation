@@ -146,7 +146,7 @@ actorShort.forEach(casts => {
 
     let castList = document.createElement("article")
     castList.innerHTML = `
-    <img src="${imgPathCast + casts.profile_path}">
+    <img src="${imgPathCast + casts.profile_path}" alt="${casts.profile_path}">
     <p>${casts.name}</p>
     `
 castElm.append(castList)
