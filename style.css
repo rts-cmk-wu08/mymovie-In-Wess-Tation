@@ -132,6 +132,8 @@ input:checked + .slider:before {
   font-weight: 400;
 }
 .genres span{
+  font-family: Poppins;
+  font-size: small;
   background-color: rgb(196, 229, 246);
   color: rgb(128, 180, 224);
   border-radius: 1rem;

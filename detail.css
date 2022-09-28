@@ -124,6 +124,7 @@ main {
 }
 .genres span {
     background-color: rgb(196, 229, 246);
+    font-size: small;
     color: rgb(128, 180, 224);
     border-radius: 1rem;
     padding: 0.1rem 0.5rem;
