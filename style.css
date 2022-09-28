@@ -114,6 +114,9 @@ input:checked + .slider:before {
   overflow-x: scroll;
   gap: 1rem;
 }
+.movie__section i {
+  color: rgb(255, 200, 0);
+}
 .movie__title {
   font-family: Poppins;
   font-weight: 400;
@@ -138,6 +141,9 @@ input:checked + .slider:before {
 }
 .divContainer {
   padding-bottom: 4rem;
+}
+.divContainer i {
+  color: rgb(255, 200, 0);
 }
 .movie__title, .vote {
   margin: 0 auto;

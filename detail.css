@@ -114,7 +114,9 @@ main {
 .movie__text {
     font-family: Poppins;
     font-weight: 400;
-    font-size: small;
+}
+.movie__score i {
+  color: rgb(255, 200, 0);
 }
 .genres {
     display: flex;
