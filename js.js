@@ -65,7 +65,7 @@ let nowShowingHeadline = document.createElement("div")
 nowShowingHeadline.innerHTML = `
 <div class="space__between">
 <h1>Now Showing</h1>
-<a href="#"><button class="seeMore">See More</button></a>
+<a href="seeMore.html"><button class="seeMore">See More</button></a>
 </div>
 `
 nowShowing.append(nowShowingHeadline)
@@ -97,7 +97,7 @@ nowShowing.append(movieSection)
         popularHeadline.innerHTML = `
         <div class="space__between">
         <h1>Popular</h1>
-        <a href="#"><button class="seeMore">See More</button></a>
+        <a href="seeMore.html"><button class="seeMore">See More</button></a>
         </div>
         `
         popular.append(popularHeadline)
