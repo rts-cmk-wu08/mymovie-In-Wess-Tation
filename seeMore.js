@@ -1,0 +1,162 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    let popularPage = 1
+    
+    let wrapperElm = document.querySelector(".wrapper")
+    
+    //HEADER
+    
+    let myHeader = document.createElement("header")
+    myHeader.innerHTML= `
+        <div class="top">
+            <h2>MyMovies</h2>
+            <label class="switch">
+            <input type="checkbox" data-mode="check" id="check">
+            <span class="slider round"></span>
+            </label>
+        </div>
+    `
+    wrapperElm.prepend(myHeader)
+    
+    //MAIN
+    
+    let myMain = document.createElement("main")
+    wrapperElm.append(myMain)
+    
+    //FOOTER
+        
+            let myFooter = document.createElement("footer")
+            myFooter.innerHTML= `
+                <div class="tags">
+                <a class="footer__a" href="#"><i class="fa-brands fa-slack"></i></a>
+                <a class="footer__a" href="#"><i class="fa-solid fa-ticket-simple"></i></a>
+                <a class="footer__a" href="#"><i class="fa-regular fa-bookmark"></i></a>
+                
+                </div>
+            `
+            wrapperElm.append(myFooter)
+    
+    
+    
+    let nowShowing = document.createElement("section")
+    nowShowing.classList.add("nowShowing")
+    myMain.append(nowShowing)
+    
+    let popular = document.createElement("section")
+    popular.classList.add("popular")
+    myMain.append(popular)
+    
+    
+    let imgPath ="https://image.tmdb.org/t/p/original"
+    let URLPath = "https://api.themoviedb.org/3/"
+    let APIKey = "8aae96e730d41065f7cfa804530c488a"
+    
+    
+    fetch(`${URLPath}movie/now_playing?api_key=${APIKey}&language=en-US&page=1`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+    
+    
+    //Popular and seeMore
+            let popularHeadline = document.createElement("div")
+            popularHeadline.innerHTML = `
+            <div class="space__between">
+            <h1>Popular</h1>
+            <a href="seeMore.html"><button class="seeMore">See More</button></a>
+            </div>
+            `
+            popular.append(popularHeadline)
+    
+    
+        })
+    function fetchPopular() {
+    
+    
+       
+    
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8aae96e730d41065f7cfa804530c488a&language=en-US&page=16`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+    
+            let imgPathPopular = "https://image.tmdb.org/t/p/w500"
+            
+    
+    
+    
+    ///
+    
+            //SECTION
+            let popularContainer = document.createElement("section")
+            popularContainer.classList.add("divContainer")
+            
+            data.results.forEach((result, index) => {
+                let popularMovies = document.createElement("div")
+                popularMovies.classList.add("div2")
+                popularMovies.innerHTML = `
+                <a href="detail.html?movie=${result.id}"><img src="images/placeholder.gif" class="movie__img2" alt="${result.title}"></a>
+                <div class="movie__info">
+                    <h3 class="movie__title">${result.original_title}</h3>
+                    <p class="vote"><i class="fa-solid fa-star"></i> ${result.vote_average} IMDb</p>
+                    
+                    <p class="genres"></p>
+                    
+                </div>
+                `
+                
+                popularContainer.append(popularMovies)
+               
+            popular.append(popularContainer)
+    
+    let imgElm = popularMovies.querySelector("img")
+    
+    let posterImg = new Image()
+    posterImg.src = `${imgPathPopular + result.poster_path}`
+    
+    posterImg.onload = () => {
+    imgElm.src = posterImg.src
+    }
+    
+    //INFINITE MOVIES
+    
+    if (index === 18) {
+        const intersectionObserver = new IntersectionObserver((entries) => {
+            if (entries[0].intersectionRatio <= 0) return
+    
+            popularPage++
+            console.log("in the viewport")
+            fetchPopular(popularPage)
+            intersectionObserver.unobserve(popularMovies)
+        })
+        intersectionObserver.observe(popularMovies)
+    }
+    
+    
+    //GENRE
+    
+    let genreElm = popularMovies.querySelector(".genres")
+    
+        result.genre_ids.forEach(id => {
+            let currentGenre = genres.find(genre => genre.id == id)
+    
+            let genreSpan = document.createElement("span")
+            genreSpan.classList.add("genre__pill")
+            genreSpan.innerText = currentGenre.name
+            genreElm.append(genreSpan)
+        })
+    
+    
+    })//forEach slut
+    
+    })//fetch slut
+    
+    }//fetchPopular slut
+    fetchPopular(popularPage)
+    
+    
+    
+    
+    
+    
+    })

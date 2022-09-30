@@ -1,0 +1,156 @@
+body {
+    margin: 0 auto;
+}
+main {
+    padding: 2rem;
+    background-color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    position: absolute;}
+
+
+/*SWITCH*/
+
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    margin-top: 2.5rem;
+    margin-left: 19rem;
+    }
+    
+    /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+    
+    /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+    
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+    
+  input:checked + .slider {
+    background-color: #373737;
+  }
+    
+  input:focus + .slider {
+    box-shadow: 0 0 1px #6e6e6e;
+  }
+    
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+    
+    /* Rounded sliders */
+  .slider.round {
+    border-radius: 20px;
+    padding-top: 2rem;
+  
+  }
+    
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+
+
+
+
+
+
+
+/*DETAIL*/
+
+
+.bookmark {
+    display: flex;
+    justify-content: space-between;
+}
+.fa-bookmark {
+    padding-top: 1.5rem;
+}
+.grey {
+    color: grey;
+}
+.movie__LL {
+    display: flex;
+    justify-content: space-around;
+}
+.movieVideo {
+    margin-bottom: -1rem;
+}
+.fa-arrow-left {
+    position: absolute;
+    z-index: 60;
+    padding: 3rem 2rem;
+    color: white;
+}
+.movie__text {
+    font-family: Poppins;
+    font-weight: 400;
+}
+.movie__score i {
+  color: rgb(255, 200, 0);
+}
+.genres {
+    display: flex;
+    gap:0.5rem;
+}
+.genres span {
+    background-color: rgb(196, 229, 246);
+    font-size: small;
+    color: rgb(128, 180, 224);
+    border-radius: 1rem;
+    padding: 0.1rem 0.5rem;
+}
+
+
+/*CAST*/
+
+.space__between {
+    display: flex;
+    justify-content: space-between;
+}
+.seeMore {
+    margin: 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid grey;
+    color: grey;
+    background-color: white;
+}
+
+.castElm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+.castElm img {
+    max-width: 4rem;
+    border-radius: 0.3rem;
+}
