@@ -8,12 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let myHeader = document.createElement("header")
     myHeader.innerHTML= `
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
         <div class="top">
             <h2>MyMovies</h2>
             <label class="switch">
             <input type="checkbox" data-mode="check" id="check">
             <span class="slider round"></span>
             </label>
+            
         </div>
     `
     wrapperElm.prepend(myHeader)
